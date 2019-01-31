@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Customer do
   let!(:point) { build(:point) }
   let!(:id) { 555 }

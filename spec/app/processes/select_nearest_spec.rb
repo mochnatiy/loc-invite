@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Customers::SelectNearest do
   describe '.call' do
     let!(:start_point) do
@@ -9,7 +11,7 @@ RSpec.describe Customers::SelectNearest do
     context 'in case of correct data' do
       before do
         allow(Providers::Path).to receive(:info).and_return(
-          File.expand_path('../../../fixtures/correct.txt', __FILE__)
+          File.expand_path('../../fixtures/correct.txt', __dir__)
         )
 
         @customers = Customers::SelectNearest.call(
@@ -20,8 +22,11 @@ RSpec.describe Customers::SelectNearest do
 
       specify 'an array with nearest customers should be returned' do
         expect(@customers.size).to eql(2)
+
         expect(@customers.map(&:id)).to eql([23, 30])
-        expect(@customers.map(&:name)).to eql(['Eoin Gallagher', 'Nick Enright'])
+        expect(@customers.map(&:name)).to eql(
+          ['Eoin Gallagher', 'Nick Enright']
+        )
         expect(@customers.map(&:distance)).to eql([82.7, 82.6])
       end
     end
@@ -29,7 +34,7 @@ RSpec.describe Customers::SelectNearest do
     context 'in case of incorrect data' do
       before do
         allow(Providers::Path).to receive(:info).and_return(
-          File.expand_path('../../../fixtures/empty.txt', __FILE__)
+          File.expand_path('../../fixtures/empty.txt', __dir__)
         )
 
         @customers = Customers::SelectNearest.call(

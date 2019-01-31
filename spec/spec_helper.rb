@@ -15,15 +15,15 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'factory_bot'
 
-require File.expand_path('../../lib/hash.rb', __FILE__)
-require File.expand_path('../../app/point.rb', __FILE__)
-require File.expand_path('../../app/distance.rb', __FILE__)
-require File.expand_path('../../app/customer.rb', __FILE__)
-require File.expand_path('../../app/processes/abstract_process.rb', __FILE__)
-require File.expand_path('../../app/processes/customers/create.rb', __FILE__)
-require File.expand_path('../../app/processes/customers/calculate_distance.rb', __FILE__)
-require File.expand_path('../../app/processes/customers/select_nearest.rb', __FILE__)
-require File.expand_path('../../data/providers/file_data.rb', __FILE__)
+require File.expand_path('../lib/hash.rb', __dir__)
+require File.expand_path('../app/point.rb', __dir__)
+require File.expand_path('../app/distance.rb', __dir__)
+require File.expand_path('../app/customer.rb', __dir__)
+require File.expand_path('../app/processes/abstract_process.rb', __dir__)
+require File.expand_path('../app/processes/customers/create.rb', __dir__)
+require File.expand_path('../app/processes/customers/calculate_distance.rb', __dir__)
+require File.expand_path('../app/processes/customers/select_nearest.rb', __dir__)
+require File.expand_path('../data/providers/file_data.rb', __dir__)
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods

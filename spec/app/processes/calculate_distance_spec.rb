@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Customers::CalculateDistance do
   describe '.call' do
     context 'in case of correct data' do
@@ -11,7 +13,7 @@ RSpec.describe Customers::CalculateDistance do
 
       before do
         allow(Providers::Path).to receive(:info).and_return(
-          File.expand_path('../../../fixtures/single.txt', __FILE__)
+          File.expand_path('../../fixtures/single.txt', __dir__)
         )
 
         @customers = Customers::CalculateDistance.call(start_point: start_point)
@@ -33,7 +35,7 @@ RSpec.describe Customers::CalculateDistance do
     context 'in case of incorrect data' do
       before do
         allow(Providers::Path).to receive(:info).and_return(
-          File.expand_path('../../../fixtures/empty.txt', __FILE__)
+          File.expand_path('../../fixtures/empty.txt', __dir__)
         )
 
         @customers = Customers::CalculateDistance.call

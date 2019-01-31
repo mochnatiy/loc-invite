@@ -1,8 +1,10 @@
-require File.expand_path('../../../distance.rb', __FILE__)
-require File.expand_path('../../abstract_process.rb', __FILE__)
-require File.expand_path('../create.rb', __FILE__)
+# frozen_string_literal: true
 
-module Customers #:nodoc:
+require File.expand_path('../../distance.rb', __dir__)
+require File.expand_path('../abstract_process.rb', __dir__)
+require File.expand_path('create.rb', __dir__)
+
+module Customers
   # Business process to calculate distance to each customer from preferred
   # location
   class CalculateDistance < ::AbstractProcess

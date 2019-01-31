@@ -1,8 +1,10 @@
-require File.expand_path('../../abstract_process.rb', __FILE__)
-require File.expand_path('../../../../data/providers/file_data.rb', __FILE__)
-require File.expand_path('../../../customer.rb', __FILE__)
+# frozen_string_literal: true
 
-module Customers #:nodoc:
+require File.expand_path('../abstract_process.rb', __dir__)
+require File.expand_path('../../../data/providers/file_data.rb', __dir__)
+require File.expand_path('../../customer.rb', __dir__)
+
+module Customers
   # Business process to create customers from data source
   class Create < ::AbstractProcess
     def call

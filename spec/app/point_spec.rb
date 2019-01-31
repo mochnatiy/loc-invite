@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Point do
   # Take for test the coords of Guinness Storehouse
   let!(:lat) { 53.3465781 }

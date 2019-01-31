@@ -1,7 +1,9 @@
-require 'json'
-require File.expand_path('../path.rb', __FILE__)
+# frozen_string_literal: true
 
-module Providers #:nodoc:
+require 'json'
+require File.expand_path('path.rb', __dir__)
+
+module Providers
   # A class which responsibility is convert records to JSON, parse it and
   # return array of hashes with customer data
   class FileData
@@ -32,12 +34,10 @@ module Providers #:nodoc:
     end
 
     def parse(raw)
-      begin
-        JSON.parse(raw).map!(&:symbolize_keys)
-      rescue JSON::ParserError
-        # Notify developers
-        raise StandardError, 'Data in file are corrupted'
-      end
+      JSON.parse(raw).map!(&:symbolize_keys)
+    rescue JSON::ParserError
+      # Notify developers
+      raise StandardError, 'Data in file are corrupted'
     end
   end
 end

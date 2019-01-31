@@ -18,7 +18,7 @@ class Distance
   # Calculate great circle distance between points
   # ==== Examples:
   # distance = Distance.new(point1, point2).calculate
-  def calculate()
+  def calculate
     (central_angle * EARTH_RADIUS).round(1)
   end
 
@@ -50,8 +50,8 @@ class Distance
   def central_angle
     arctan(
       sqrt(
-        (cos(lat2) * sin(delta)) ** 2 +
-          (cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(delta)) ** 2
+        (cos(lat2) * sin(delta))**2 +
+          (cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(delta))**2
       ) / (
         sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(delta)
       )

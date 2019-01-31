@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Distance do
   # For this test an independent calculator from the NOAA was used:
   # https://www.nhc.noaa.gov/gccalc.shtml

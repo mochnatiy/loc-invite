@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Customers::Create do
   describe '.call' do
     context 'in case of correct data' do
@@ -7,7 +9,7 @@ RSpec.describe Customers::Create do
 
       before do
         allow(Providers::Path).to receive(:info).and_return(
-          File.expand_path('../../../fixtures/single.txt', __FILE__)
+          File.expand_path('../../fixtures/single.txt', __dir__)
         )
 
         @customers = Customers::Create.call
@@ -28,7 +30,7 @@ RSpec.describe Customers::Create do
     context 'in case of incorrect data' do
       before do
         allow(Providers::Path).to receive(:info).and_return(
-          File.expand_path('../../../fixtures/empty.txt', __FILE__)
+          File.expand_path('../../fixtures/empty.txt', __dir__)
         )
 
         @customers = Customers::Create.call
