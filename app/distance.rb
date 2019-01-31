@@ -1,23 +1,23 @@
 # A responsibility of Distance class is to calculate great circle distance
 # between two points
-# Usage: distance = Distance.new(point1, point2).calculate
-
 class Distance
   # Earth radius in kilometers
   EARTH_RADIUS = 6371
 
   attr_reader :lat1, :long1, :lat2, :long2
 
-  def initialize(*points)
+  def initialize(start_point, end_point)
     # Convert input data to variables more suitable for computations
-    @lat1 = points.first.latitude
-    @long1 = points.first.longitude
+    @lat1 = start_point.latitude
+    @long1 = start_point.longitude
 
-    @lat2 = points.last.latitude
-    @long2 = points.last.longitude
+    @lat2 = end_point.latitude
+    @long2 = end_point.longitude
   end
 
   # Calculate great circle distance between points
+  # ==== Examples:
+  # distance = Distance.new(point1, point2).calculate
   def calculate()
     (central_angle * EARTH_RADIUS).round(1)
   end

@@ -1,5 +1,3 @@
-require File.expand_path('../../../app/point.rb', __FILE__)
-
 RSpec.describe Point do
   # Take for test the coords of Guinness Storehouse
   let!(:lat) { 53.3465781 }
